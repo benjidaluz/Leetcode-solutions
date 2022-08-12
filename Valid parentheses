@@ -1,0 +1,48 @@
+bool isValid(char * s){
+    int i;
+    char stack[10000];
+    int h,f=0;
+for(i=0;s[i]!='\0';i++){
+    switch(s[i]){
+        case '(':
+            stack[f]='('    ;
+            f++;
+            break;
+        case '{':
+            stack[f]='{'    ;
+            f++;
+            break;
+        case '[':
+            stack[f]='['   ;
+            f++;
+            break;
+        case ')':
+            if((f-1<0) || (stack[f-1]!='(') ){
+               return 0;     
+            }
+            else
+            f--;
+            break;
+        case '}':
+            if( (f-1<0) || (stack[f-1]!='{') ){
+               return 0;     
+            }
+            else 
+             f--;
+            break;
+        case ']':
+            if((f-1<0)||(stack[f-1]!='[') ){
+               return 0;     
+            }
+            else
+            f--;
+            break;
+            }    
+    if(f<0){
+    return 0;}
+    }
+if(f != 0){
+    return 0;}
+else 
+    return 1;
+}
