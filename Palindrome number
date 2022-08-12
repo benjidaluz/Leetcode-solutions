@@ -1,0 +1,36 @@
+bool isPalindrome(int x){
+    int counter = 0;
+    char string[20];
+    char reverse[20];
+    int similar = 0;
+    
+    sprintf(string, "%d", x);
+    
+    for (int i = 0; string[i] != '\0'; ++i) {
+        counter++;
+    }
+    
+    int temp = counter;
+    
+    for (int i = 0; i < counter; ++i) {
+        reverse[i] = string[counter-1-i];
+        
+    }
+    
+    for (int i = 0; i < temp; ++i) {
+        if (reverse[i] == string[i]) {
+            similar++;
+        }
+    }
+    
+    
+    //printf("%s\n%s\n", string, reverse);
+    //return true;
+    
+    if (similar == temp) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
